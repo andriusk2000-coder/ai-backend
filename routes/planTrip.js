@@ -58,6 +58,7 @@ export default async function planTrip(req, res) {
   } catch (err) {
     console.error("AI klaida:", err);
     return res.status(500).json({
+      ok: false,
       error: "AI serverio klaida",
     });
   }
