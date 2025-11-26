@@ -10,8 +10,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API endpoint
+// paprastas health patikrinimas
+app.get("/", (req, res) => {
+  res.json({ ok: true, message: "AI backend online" });
+});
+
+// API endpoint (leidžiam abu variantus be ir su / gale)
 app.post("/api/plan-trip", planTrip);
+app.post("/api/plan-trip/", planTrip);
+
 
 // server port
 const PORT = process.env.PORT || 3000;
